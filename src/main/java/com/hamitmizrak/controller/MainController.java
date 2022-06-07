@@ -90,21 +90,22 @@ public class MainController {
     }
 
 
-    //http://localhost:8080/thymeleaf6?surname=Mızrak
+    //http://localhost:8080/thymeleaf6?adi=Hamit&surname=Mızrak
     @GetMapping("thymeleaf6")
-    public String  getTymeleaf6(Model model, @RequestParam(name="surname") String surname ) {
-        if(surname!=null){
+    public String  getTymeleaf6(
+            Model model,
+            @RequestParam(name="adi") String adi
+            ,@RequestParam(name="surname") String surname ) {
+
             StudentDto studentDto =
                     StudentDto
                             .builder()
                             .studentId(0L)
-                            .studentName("Adı")
+                            .studentName(adi)
                             .studentSurname(surname)
                             .build();
             model.addAttribute("key_controller", studentDto);
-        }else{
-            model.addAttribute("key_controller", "404 id bulunamadı");
-        }
+
         return "thymeleaf5";
     }
 
