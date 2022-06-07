@@ -17,8 +17,25 @@
 <body class="container bg-dark text-white">
 <!-- start codes -->
 
-<h1 th:text="#{thymeleaf2}" class="text-center text-primary"></h1>
-<h2 th:text="${key_controller}" class="text-center text-warning"></h2>
+<p class="display-5">Table</p>
+<table class="table table-hover table-striped table-dark">
+    <thead>
+        <tr class="bg-primary">
+            <th th:text="#{studentId}" ></th>
+            <th th:text="#{studentName}" ></th>
+            <th th:text="#{studentSurname}" ></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="stu:${key_controller}">
+            <td th:text="${stu.studentId}" ></td>
+            <td th:text="${stu.studentName}" ></td>
+            <td th:text="${stu.studentSurname}" ></td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 <!-- ends codes -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
